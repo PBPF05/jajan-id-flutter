@@ -35,7 +35,8 @@ jajan.id merupakan platform yang dibuat untuk pedagang kecil. Dengan begitu, dih
 ## Daftar Modul
 
 1. Home Page (Jeremy Mervin Juniandi Sitorus)
-   - Menampilkan halaman awal berupa login, register, dan logout
+   - Membuat halaman otentikasi login dan register
+   - Membuat halaman awal yang mengarah ke halaman lainnya
    - Dapat mengirim pesan kontak
 2. Katalog toko (Natasya Ashil Zhafirah)
    - Menampilkan halaman yang berisikan daftar toko yang dapat dilihat dan dipilih oleh user
