@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jajan_id/screens/home.dart';
+import 'package:jajan_id/screens/login.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -9,23 +10,30 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
+  final pages = [
+    ["Counter", const MyHomePage(title: "Program Counter")],
+    ["Login", const LoginPage()]
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
-        children: [
-          ListTile(
-            title: const Text("counter_7"),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const MyHomePage(title: "Program Counter"),
-                ),
-              );
-            },
-          ),
-        ],
+        children: pages
+            .map(
+              (e) => ListTile(
+                title: Text(e[0] as String),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (ctx) => e[1] as Widget,
+                    ),
+                  );
+                },
+              ),
+            )
+            .toList(),
       ),
     );
   }
