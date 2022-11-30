@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
+import 'package:jajan_id/req.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -47,8 +48,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextButton(
               onPressed: () {
-                final req = Provider.of<CookieRequest>(context, listen: false);
-                req.login("https://jajan-id.up.railway.app/auth/login", {
+                final req = Provider.of<AppRequest>(context, listen: false);
+                req.login("auth/login", {
                   "username": username,
                   "password": password,
                 }).then(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:jajan_id/req.dart';
 import 'package:jajan_id/screens/home.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load();
   runApp(const MyApp());
 }
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       create: (_) {
-        CookieRequest request = CookieRequest();
+        AppRequest request = AppRequest();
         return request;
       },
       child: MaterialApp(
