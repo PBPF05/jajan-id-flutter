@@ -1,4 +1,10 @@
 # jajan.id
+
+[![Staging](https://github.com/PBPF05/jajan-id-flutter/actions/workflows/staging.yaml/badge.svg)](https://github.com/PBPF05/jajan-id-flutter/actions/workflows/staging.yaml)
+[![Pre-Release](https://github.com/PBPF05/jajan-id-flutter/actions/workflows/pre-release.yaml/badge.svg)](https://github.com/PBPF05/jajan-id-flutter/actions/workflows/pre-release.yaml)
+[![Release](https://github.com/PBPF05/jajan-id-flutter/actions/workflows/release.yaml/badge.svg)](https://github.com/PBPF05/jajan-id-flutter/actions/workflows/release.yaml)
+[![Build status](https://build.appcenter.ms/v0.1/apps/009e2f3a-0462-415a-94eb-8c5e7b5a0dc4/branches/main/badge)](https://appcenter.ms)
+
 > Proyek ini dibuat untuk memenuhi tugas Proyek Akhir Semester pada mata kuliah Pemrograman Berbasis Platform (CSGE602022) yang diselenggarakan oleh Fakultas Ilmu Komputer, Universitas Indonesia pada Semester Gasal, Tahun Ajaran 2022/2023.
 
 ## Pengembang
@@ -12,14 +18,17 @@ Proyek ini dibuat oleh kelompok F05, yang terdiri dari:
 - Rendy Arya Kemal (2106639945)
 
 ## Deskripsi Aplikasi
+
 Nama Aplikasi: jajan.id
 
 ### Fungsi Aplikasi
-jajan.id merupakan platform yang dibuat untuk pedagang kecil. Dengan begitu, diharapkan para pedagang dapat lebih diketahui oleh masyarakat sekitar, serta memperkuat semangat untuk terus berkreasi dan berinovasi dalam dagangannya. 
+
+jajan.id merupakan platform yang dibuat untuk pedagang kecil. Dengan begitu, diharapkan para pedagang dapat lebih diketahui oleh masyarakat sekitar, serta memperkuat semangat untuk terus berkreasi dan berinovasi dalam dagangannya.
 
 ### Role
 
 1. Registered User
+
    - Owner toko
      - Membuat ataupun menghapus toko
      - Menambah atau menghapus barang yang dijual
@@ -52,7 +61,9 @@ jajan.id merupakan platform yang dibuat untuk pedagang kecil. Dengan begitu, dih
    - Menampilkan halaman chatting untuk user dan penjual dapat berkomunikasi
 
 ## Alur Integrasi
+
 Integrasi dengan _web service_ yang telah dibuat berdasarkan berikut:
+
 1. Membuat _endpoint_ otentikasi (login maupun logout) melalui JSON pada _web service_
 2. Melakukan otentikasi pada aplikasi Flutter
 3. Menyimpan _session cookie_ yang diberikan oleh _web service_
