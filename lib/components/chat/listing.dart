@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:jajan_id/screens/chat/convo.dart';
 import 'package:jajan_id/models/chat.dart';
-import 'package:jajan_id/screens/home.dart';
 
 class ChatListing extends StatelessWidget {
-  const ChatListing({super.key, required this.data});
-
+  const ChatListing({
+    super.key,
+    required this.data,
+  });
   final ChannelData data;
 
   @override
@@ -29,7 +32,10 @@ class ChatListing extends StatelessWidget {
             onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (ctx) => const MyHomePage(title: "Home"),
+                  builder: (ctx) => ChatPage(
+                    channel: chan,
+                    isSeller: chan.isToko,
+                  ),
                 )),
             child: Padding(
               padding: const EdgeInsets.all(16.0),

@@ -5,14 +5,14 @@ import 'package:jajan_id/models/chat.dart';
 import 'package:jajan_id/req.dart';
 import 'package:provider/provider.dart';
 
-class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+class ChatListPage extends StatefulWidget {
+  const ChatListPage({super.key});
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<ChatListPage> createState() => _ChatListPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatListPageState extends State<ChatListPage> {
   late Future<ChannelData> chatsFuture;
 
   Future<ChannelData> fetchChats(AppRequest request) async {

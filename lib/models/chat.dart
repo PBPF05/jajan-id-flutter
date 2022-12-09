@@ -146,3 +146,33 @@ class User {
         "last_name": lastName,
       };
 }
+
+class ChatMessage {
+  ChatMessage({
+    required this.pesan,
+    required this.pengirim,
+    required this.channel,
+    required this.pk,
+  });
+
+  int pk;
+  String pesan;
+  String pengirim;
+  int channel;
+
+  String toRawJson() => json.encode(toJson());
+
+  factory ChatMessage.fromJson(int pk, Map<String, dynamic> json) =>
+      ChatMessage(
+        pesan: json["pesan"],
+        pengirim: json["pengirim"],
+        channel: json["channel"],
+        pk: pk,
+      );
+
+  Map<String, dynamic> toJson() => {
+        "pesan": pesan,
+        "pengirim": pengirim,
+        "channel": channel,
+      };
+}
