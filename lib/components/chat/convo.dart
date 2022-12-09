@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:jajan_id/models/chat.dart';
 
 class ConversationContainer extends StatelessWidget {
