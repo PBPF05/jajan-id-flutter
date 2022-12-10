@@ -7,8 +7,6 @@ import 'package:jajan_id/models/chat.dart';
 import 'package:jajan_id/req.dart';
 import 'package:provider/provider.dart';
 
-import '../../components/drawer.dart';
-
 class ChatPage extends StatefulWidget {
   const ChatPage({
     super.key,
@@ -139,7 +137,6 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         title: Text(name),
       ),
-      // drawer: const AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
