@@ -28,7 +28,7 @@ class ChatListing extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
           child: InkWell(
-            onTap: () => Navigator.pushReplacement(
+            onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => ChatPage(

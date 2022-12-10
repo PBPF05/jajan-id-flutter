@@ -26,7 +26,7 @@ class _ChatListPageState extends State<ChatListPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: const Text("Chat"),
       ),
       drawer: const AppDrawer(),
       body: FutureBuilder(

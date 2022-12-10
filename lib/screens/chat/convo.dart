@@ -128,11 +128,18 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
+    String name;
+    if (widget.channel.isToko) {
+      name = "${widget.channel.user.firstName} ${widget.channel.user.lastName}";
+    } else {
+      name = widget.channel.toko.nama;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: Text(name),
       ),
-      drawer: const AppDrawer(),
+      // drawer: const AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
