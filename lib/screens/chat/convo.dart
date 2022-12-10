@@ -116,6 +116,13 @@ class _ChatPageState extends State<ChatPage> {
     setState(() {
       messages = [...messages, ...data];
       msgController.clear();
+      Timer.run(
+        () => scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeOut,
+        ),
+      );
     });
   }
 

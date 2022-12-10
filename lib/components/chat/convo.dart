@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jajan_id/models/chat.dart';
 
-class ConversationContainer extends StatelessWidget {
+class ConversationContainer extends StatefulWidget {
   const ConversationContainer({
     super.key,
     required this.messages,
@@ -18,20 +18,35 @@ class ConversationContainer extends StatelessWidget {
   final void Function() onLoadMoreClick;
 
   @override
+  State<ConversationContainer> createState() => _ConversationContainerState();
+}
+
+class _ConversationContainerState extends State<ConversationContainer> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => widget.scrollController.jumpTo(
+        widget.scrollController.position.maxScrollExtent,
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ListView(
-      controller: scrollController,
+      controller: widget.scrollController,
       children: [
-        showLoadingBtn
+        widget.showLoadingBtn
             ? ElevatedButton(
-                onPressed: onLoadMoreClick,
+                onPressed: widget.onLoadMoreClick,
                 child: const Text("Load More"),
               )
             : const SizedBox(),
         const SizedBox(height: 8),
-        ...messages.map((msg) {
-          final isMe = (msg.pengirim == "pengirim" && isSeller) ||
-              (msg.pengirim == "user" && !isSeller);
+        ...widget.messages.map((msg) {
+          final isMe = (msg.pengirim == "pengirim" && widget.isSeller) ||
+              (msg.pengirim == "user" && !widget.isSeller);
 
           return Row(
             mainAxisAlignment:
