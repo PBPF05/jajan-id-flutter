@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
 import 'package:jajan_id/req.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
