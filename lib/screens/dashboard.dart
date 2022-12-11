@@ -74,78 +74,113 @@ class _DashBoardPageState extends State<DashBoardPage> {
         title: Text(widget.title),
       ),
       drawer: AppDrawer(),
-      body: Container(
-        height: size.height * 3,
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+      body:
+        Center(
+          // child: Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                Image(image: AssetImage('assets/images/store_notexist.png'), height: 200,),
+                Text("Hai, ",
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  height: 2,
+                  fontSize: 20
+                ),),
+                Text("Kamu belum punya toko nih!",
+                style: TextStyle(
+                    height: 1,
+                    fontSize: 16
+                ),),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        "Nama Toko",
+                  child: ElevatedButton(onPressed: (){},
+                      child: Text("Buka Toko",
                         style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 20),
-                      ),
-                      Text(
-                        "Alamat Toko",
-                        style:
-                            TextStyle(fontWeight: FontWeight.w600, height: 1.5),
-                      ),
-                      Text(
-                        "Deskripsi Toko",
-                        style: TextStyle(height: 2),
-                      )
-                    ],
-                  ),
-                ),
-                Column(
-                  children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          bukaTutup = !bukaTutup;
-                        });
-                      },
-                      child: Text(bukaTutup ? "Tutup" : "Buka"),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              bukaTutup ? Colors.red : Colors.green),
-                    )
-                  ],
+                            color: Colors.black)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orangeAccent
+                  ),),
                 )
               ],
             ),
-            Expanded(
-                child: GridView.count(
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    primary: false,
-                    crossAxisCount: 2,
-                    children: isi_card
-                        .map(
-                          (e) => Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Image.network(e[0] as String),
-                                Text(
-                                  e[1] as String,
-                                  style: TextStyle(height: 2.5),
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                        .toList()))
-          ],
-        ),
-      ),
+          ),
+        // )
+      // Container(
+      //   height: size.height * 3,
+      //   child: Column(
+      //     children: [
+      //       Row(
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: <Widget>[
+      //           Padding(
+      //             padding: const EdgeInsets.all(16.0),
+      //             child: Column(
+      //               mainAxisAlignment: MainAxisAlignment.center,
+      //               crossAxisAlignment: CrossAxisAlignment.start,
+      //               children: <Widget>[
+      //                 Text(
+      //                   "Nama Toko",
+      //                   style: TextStyle(
+      //                       fontWeight: FontWeight.w800, fontSize: 20),
+      //                 ),
+      //                 Text(
+      //                   "Alamat Toko",
+      //                   style:
+      //                       TextStyle(fontWeight: FontWeight.w600, height: 1.5),
+      //                 ),
+      //                 Text(
+      //                   "Deskripsi Toko",
+      //                   style: TextStyle(height: 2),
+      //                 )
+      //               ],
+      //             ),
+      //           ),
+      //           Column(
+      //             children: <Widget>[
+      //               ElevatedButton(
+      //                 onPressed: () {
+      //                   setState(() {
+      //                     bukaTutup = !bukaTutup;
+      //                   });
+      //                 },
+      //                 child: Text(bukaTutup ? "Tutup" : "Buka"),
+      //                 style: ElevatedButton.styleFrom(
+      //                     backgroundColor:
+      //                         bukaTutup ? Colors.red : Colors.green),
+      //               )
+      //             ],
+      //           )
+      //         ],
+      //       ),
+      //       Expanded(
+      //           child: GridView.count(
+      //               mainAxisSpacing: 10,
+      //               crossAxisSpacing: 10,
+      //               primary: false,
+      //               crossAxisCount: 2,
+      //               children: isi_card
+      //                   .map(
+      //                     (e) => InkWell(
+      //                       onTap: (){},
+      //                       child: Card(
+      //                         child: Column(
+      //                           mainAxisAlignment: MainAxisAlignment.center,
+      //                           children: <Widget>[
+      //                             Image.network(e[0] as String),
+      //                             Text(
+      //                               e[1] as String,
+      //                               style: TextStyle(height: 2.5),
+      //                             )
+      //                           ],
+      //                         ),
+      //                       ),
+      //                     ),
+      //                   )
+      //                   .toList()))
+      //     ],
+      //   ),
+      // ),
     );
   }
 }
