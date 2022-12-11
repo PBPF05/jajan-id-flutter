@@ -6,7 +6,7 @@ import 'package:jajan_id/model/toko_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_svg/flutter_svg.dart';
 
-class DashBoardPage extends StatefulWidget{
+class DashBoardPage extends StatefulWidget {
   const DashBoardPage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -24,7 +24,7 @@ class DashBoardPage extends StatefulWidget{
   State<DashBoardPage> createState() => _DashBoardPageState();
 }
 
-class _DashBoardPageState extends State<DashBoardPage>{
+class _DashBoardPageState extends State<DashBoardPage> {
   Future<Toko> fetchToDo() async {
     var url = Uri.parse('http://localhost:8000/dashboard/json/');
     var response = await http.get(
@@ -57,6 +57,16 @@ class _DashBoardPageState extends State<DashBoardPage>{
     // TODO: implement build
     // throw UnimplementedError();
     var size = MediaQuery.of(context).size;
+
+    final isi_card = [
+      ['https://img.icons8.com/color/96/null/edit--v1.png', 'Detail'],
+      [
+        'https://img.icons8.com/office/80/null/time-span.png',
+        'Jadwal Operasional'
+      ],
+      ['https://img.icons8.com/color/96/null/hamper.png', 'Daftar Barang'],
+      ['https://img.icons8.com/dusk/64/null/plus-2-math.png', 'Tambah Barang']
+    ];
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -64,114 +74,78 @@ class _DashBoardPageState extends State<DashBoardPage>{
         title: Text(widget.title),
       ),
       drawer: AppDrawer(),
-      body:Container(
-            height: size.height * 3,
-            child: Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Nama Toko",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                              fontSize: 20
-                            ),),
-                          Text("Alamat Toko",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            height: 1.5
-                          ),),
-                          Text("Deskripsi Toko",
-                          style: TextStyle(
-                            height: 2
-                          ),)
-                        ],
+      body: Container(
+        height: size.height * 3,
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Nama Toko",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w800, fontSize: 20),
                       ),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        ElevatedButton(onPressed:(){
-                          setState(() {
-                            bukaTutup = !bukaTutup;
-                          });
-                        },
-                            child: Text(bukaTutup ? "Tutup":"Buka"),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: bukaTutup? Colors.red:Colors.green
-                            ),)
-                      ],
+                      Text(
+                        "Alamat Toko",
+                        style:
+                            TextStyle(fontWeight: FontWeight.w600, height: 1.5),
+                      ),
+                      Text(
+                        "Deskripsi Toko",
+                        style: TextStyle(height: 2),
+                      )
+                    ],
+                  ),
+                ),
+                Column(
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          bukaTutup = !bukaTutup;
+                        });
+                      },
+                      child: Text(bukaTutup ? "Tutup" : "Buka"),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              bukaTutup ? Colors.red : Colors.green),
                     )
                   ],
-                ),
-                Expanded(
-                  child: GridView.count(
+                )
+              ],
+            ),
+            Expanded(
+                child: GridView.count(
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
                     primary: false,
                     crossAxisCount: 2,
-                  children: <Widget>[
-                    Card()
-                  ],),
-                )
-              ],
-            ),
-          ),
-      // FutureBuilder(
-      //     future: fetchToDo(),
-      //     builder: (context, AsyncSnapshot snapshot){
-      //       if(snapshot.data == null){
-      //         return Center(child: Column(
-      //           children: [
-      //             Text("Anda belum Log in")
-      //           ],
-      //         ));
-      //       } else{
-      //         if(!snapshot.hasData){
-      //           return Container(
-      //             decoration: BoxDecoration(
-      //                 color: Colors.white,
-      //                 borderRadius: BorderRadius.circular(15.0),
-      //                 boxShadow: const [
-      //                   BoxShadow(
-      //                       color: Colors.black, blurRadius: 2.0)
-      //                 ]),
-      //             child: Column(
-      //
-      //             ),
-      //           );
-      //         } else {
-      //           return Container();
-      //           // return ListView.builder(itemBuilder: itemBuilder);
-      //         }
-      //       }
-      //     }
-      // )
-    );
-  }
-}
-
-class _MenuDashboard extends StatelessWidget{
-  const _MenuDashboard({
-    required icon,
-    required subtitle
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Card(
-      child: Column(
-        children: <Widget>[
-
-        ],
+                    children: isi_card
+                        .map(
+                          (e) => Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(e[0] as String),
+                                Text(
+                                  e[1] as String,
+                                  style: TextStyle(height: 2.5),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                        .toList()))
+          ],
+        ),
       ),
     );
   }
-  
 }
