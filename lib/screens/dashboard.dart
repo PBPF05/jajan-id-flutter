@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
+import 'package:jajan_id/screens/create-toko.dart';
 import 'package:provider/provider.dart';
 import 'package:jajan_id/model/toko_model.dart';
 import 'package:http/http.dart' as http;
@@ -94,7 +95,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 ),),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: ElevatedButton(onPressed: (){},
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return CreateTokoPage();
+                    }),
+                    );
+                  },
                       child: Text("Buka Toko",
                         style: TextStyle(
                             color: Colors.black)),
