@@ -1,5 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
+import 'package:provider/provider.dart';
+import 'package:jajan_id/model/toko_model.dart';
+import 'package:http/http.dart' as http;
 
 class DashBoardPage extends StatefulWidget{
   const DashBoardPage({super.key, required this.title});
@@ -20,6 +24,31 @@ class DashBoardPage extends StatefulWidget{
 }
 
 class _DashBoardPageState extends State<DashBoardPage>{
+  Future<Toko> fetchToDo() async {
+    var url = Uri.parse('http://localhost:8000/dashboard/json/');
+    var response = await http.get(
+      url,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    );
+
+    // melakukan decode response menjadi bentuk json
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+    // melakukan konversi data json menjadi object ToDo
+    // List<Toko> listToko = [];
+    // for (var d in data) {
+    //   if (d != null) {
+    //     listMovie.add(Toko.fromJson(d));
+    //   }
+    // }
+    Toko tokoPengguna = Toko.fromJson(data);
+
+    return tokoPengguna;
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -31,9 +60,32 @@ class _DashBoardPageState extends State<DashBoardPage>{
         title: Text(widget.title),
       ),
       drawer: AppDrawer(),
-      body: Center(
+      body: FutureBuilder(
+          future: fetchToDo(),
+          builder: (context, AsyncSnapshot snapshot){
+            if(snapshot.data == null){
+              return const Center(child: CircularProgressIndicator());
+            } else{
+              if(!snapshot.hasData){
+                return Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15.0),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black, blurRadius: 2.0)
+                      ]),
+                  child: Column(
 
-      ),
+                  ),
+                );
+              } else {
+                return Container();
+                // return ListView.builder(itemBuilder: itemBuilder);
+              }
+            }
+          }
+      )
     );
   }
   
