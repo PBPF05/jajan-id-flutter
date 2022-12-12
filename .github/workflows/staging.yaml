@@ -40,4 +40,4 @@ jobs:
         run: echo "API_URL=https://jajan-id.up.railway.app/" > .env
 
       - name: Analyze
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
