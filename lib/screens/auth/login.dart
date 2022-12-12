@@ -169,8 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const MyHomePage(
-                                                    title: 'Program Counter')));
+                                                const MyHomePage()));
                                   } else {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(
