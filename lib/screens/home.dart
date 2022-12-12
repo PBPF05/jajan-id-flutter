@@ -6,6 +6,7 @@ import 'package:jajan_id/screens/dashboard/dashboard.dart';
 import 'package:jajan_id/components/drawer.dart';
 import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/screens/kontak/kontak.dart';
+import 'package:jajan_id/screens/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -280,6 +281,13 @@ class _MyHomePageState extends State<MyHomePage> {
         icon: const Icon(Icons.logout), label: "$title");
   }
 
+  void onTap(int idx) {
+    if (idx == 1) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const SplashPage()));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -321,6 +329,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: onTap,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           getBottomNavigationItem(
