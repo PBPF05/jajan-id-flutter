@@ -13,7 +13,7 @@ class OperationalSchedPage extends StatefulWidget{
 
 class _OperationalSchedPageState extends State<OperationalSchedPage>{
   Future<List<JadwalOperasi>> fetchToDo() async {
-    var url = Uri.parse('http://localhost:8000/dashboard/jadwal/json/');
+    var url = Uri.parse('https://jajan-id.up.railway.app/dashboard/jadwal/json/');
     var response = await http.get(
       url,
       headers: {

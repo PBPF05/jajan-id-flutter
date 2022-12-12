@@ -16,7 +16,7 @@ class ProductListPage extends StatefulWidget {
 
 class _ProductListPageState extends State<ProductListPage> {
   Future<List<Barang>> fetchToDo() async {
-    var url = Uri.parse('http://localhost:8000/dashboard/barang/json/');
+    var url = Uri.parse('https://jajan-id.up.railway.app/dashboard/barang/json/');
     var response = await http.get(
       url,
       headers: {

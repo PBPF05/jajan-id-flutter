@@ -31,7 +31,7 @@ class DashBoardPage extends StatefulWidget {
 
 class _DashBoardPageState extends State<DashBoardPage> {
   Future<List<Toko>> fetchToDo() async {
-    var url = Uri.parse('http://localhost:8000/dashboard/json/');
+    var url = Uri.parse('https://jajan-id.up.railway.app/dashboard/json/');
     var response = await http.get(
       url,
       headers: {
