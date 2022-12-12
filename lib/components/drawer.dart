@@ -3,6 +3,7 @@ import 'package:jajan_id/screens/chat/list.dart';
 import 'package:jajan_id/screens/home.dart';
 import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/screens/auth/login.dart';
+import 'package:jajan_id/screens/katalog/katalogtoko.dart';
 import 'package:jajan_id/screens/dashboard/dashboard.dart';
 import 'package:jajan_id/screens/kontak/kontak.dart';
 
