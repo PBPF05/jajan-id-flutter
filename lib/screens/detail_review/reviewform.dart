@@ -52,7 +52,6 @@ class _ReviewFormState extends State<ReviewForm> {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
-                    // nanti balik ke page sblmnya?
                   },
                   child: Icon(
                     Icons.keyboard_backspace,
