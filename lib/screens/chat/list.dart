@@ -35,7 +35,11 @@ class _ChatListPageState extends State<ChatListPage> {
       ),
       drawer: const AppDrawer(),
       body: RefreshIndicator(
-        onRefresh: fetchChats,
+        onRefresh: () async {
+          setState(() {
+            chatsFuture = fetchChats();
+          });
+        },
         child: FutureBuilder(
           future: chatsFuture,
           builder: (context, snapshot) {
