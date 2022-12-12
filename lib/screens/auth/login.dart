@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   String username = "";
   String password = "";
 
-   @override
+  @override
   Widget build(BuildContext context) {
     final request = context.read<AppRequest>();
 
@@ -38,8 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.5), BlendMode.dstATop),
             )),
-            child: 
-            Form(
+            child: Form(
                 key: _formKey,
                 child: Center(
                   child: Container(
@@ -151,9 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                                         'password': password
                                       }));
 
-                                  // print(response.body);
-                                  bool status = response["status"];
-                                  // print(jsonDecode(response.body));
+                                  bool status = request.loggedIn;
 
                                   if (status) {
                                     ScaffoldMessenger.of(context)
@@ -174,9 +171,9 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const MyHomePage(
-                                                title:
-                                                    'Program Counter')));
+                                            builder: (context) =>
+                                                const MyHomePage(
+                                                    title: 'Program Counter')));
                                   } else {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(
@@ -223,5 +220,3 @@ class _LoginPageState extends State<LoginPage> {
                 ))));
   }
 }
-
-                                
