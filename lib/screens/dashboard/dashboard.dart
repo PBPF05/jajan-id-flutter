@@ -80,7 +80,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                if (!snapshot.hasData) {
+                if (!snapshot.hasData || snapshot.data == null) {
                   return Center(
                     // child: Card(
                     child: Column(
@@ -184,8 +184,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 ElevatedButton(
                                   onPressed: () {
                                     setState(() {
-                                      final req = Provider.of<AppRequest>(context, listen: false);
-                                      req.postJson('dashboard/bukatutup/', null);
+                                      // final req = Provider.of<AppRequest>(context, listen: false);
+                                      // req.postJson('dashboard/bukatutup/', null);
                                       bukaTutup = !bukaTutup;
                                     });
                                   },

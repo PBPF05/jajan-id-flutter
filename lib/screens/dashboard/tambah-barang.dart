@@ -155,16 +155,16 @@ class _AddProductPageState extends State<AddProductPage>{
                     ),
                   ),
                   ElevatedButton(onPressed: () async {
-                    // Provider.of<AppRequest>(context, listen: false);
-                    if(_formKey.currentState!.validate()) {
-                      final finalReq = response.postJson("dashboard/tambah/json/", jsonEncode({
-                        "inputNama" : inputNama,
-                        "inputHarga" : inputHarga,
-                        "inputJenis" : inputJenis,
-                        "inputDeskripsi" : inputDeskripsi,
-                        "inputToko" : widget.toko.pk,
-                      }));
-                    };
+                    // // Provider.of<AppRequest>(context, listen: false);
+                    // if(_formKey.currentState!.validate()) {
+                    //   final finalReq = response.postJson("dashboard/json/", jsonEncode({
+                    //     "inputNama" : inputNama,
+                    //     "inputHarga" : inputHarga,
+                    //     "inputJenis" : inputJenis,
+                    //     "inputDeskripsi" : inputDeskripsi,
+                    //     "inputToko" : widget.toko.pk,
+                    //   }));
+                    // };
 
                   }, child: Text("Submit"))
                 ],
