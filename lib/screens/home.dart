@@ -13,17 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(title: "Homepage",),
+      home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  final String title;
-
-  const MyHomePage({super.key, required this.title});
-
+  const MyHomePage({super.key});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -52,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Expanded getExpanded(String imageName, String mainText, String subText) {
     return Expanded(
       child: TextButton(
-        style : TextButton.styleFrom(padding : EdgeInsets.all(0)),
+        style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
         child: Container(
           margin:
               EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
@@ -92,33 +89,31 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const DashBoardPage(title: '',)));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const DashBoardPage(
+                        title: '',
+                      )));
         },
       ),
     );
   }
 
-  
   BottomNavigationBarItem getBottomNavigationItem(
       String title, IconData IconName) {
     return BottomNavigationBarItem(
-      icon: Icon(
-        IconName,
-        size: 35.0,
-      ),
-      label: "$title"
-    );
+        icon: Icon(
+          IconName,
+          size: 35.0,
+        ),
+        label: "$title");
   }
 
   BottomNavigationBarItem getBottomNavigationItemLogout(
       String title, IconData IconName) {
     return BottomNavigationBarItem(
-      icon: const Icon(
-        Icons.logout
-      ),
-      label: "$title"
-    );
+        icon: const Icon(Icons.logout), label: "$title");
   }
 
   @override
@@ -158,11 +153,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-
           ],
         ),
       ),
-      
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
@@ -176,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const IconData(0xe90c,
                   fontFamily: 'outline_material_icons',
                   fontPackage: 'outline_material_icons')),
-        ], 
+        ],
 //        currentIndex: 1,
         selectedItemColor: Colors.amber[800],
       ),
