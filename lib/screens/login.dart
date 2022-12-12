@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 251, 187, 68),
         title: const Text("Login"),
         centerTitle: true,
       ),
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           width: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: const AssetImage("lib/assets/jajan-id.png"),
+            image: const AssetImage("assets/images/shopping-online.png"),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.5), BlendMode.dstATop),
@@ -131,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: OutlinedButton(
                               style: OutlinedButton.styleFrom(
                                 backgroundColor:
-                                    Color.fromARGB(255, 20, 85, 138),
+                                    Color.fromARGB(255, 251, 187, 68),
                                 minimumSize: const Size(80, 50),
                                 padding: const EdgeInsets.all(10),
                                 shape: RoundedRectangleBorder(
