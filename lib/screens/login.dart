@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                                   "password": password,
                                 });
 
-                                bool status = req.jsonData as bool;
+                                bool status = req.loggedIn;
 
                                   if (status) {
                                     ScaffoldMessenger.of(context)
