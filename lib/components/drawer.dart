@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jajan_id/screens/chat/list.dart';
 import 'package:jajan_id/screens/home.dart';
 import 'package:jajan_id/screens/login.dart';
-import 'package:jajan_id/screens/dashboard.dart';
+import 'package:jajan_id/screens/dashboard/dashboard.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
