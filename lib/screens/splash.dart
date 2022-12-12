@@ -32,6 +32,7 @@ class SplashPage extends StatelessWidget {
                   SizedBox(height: 20),
                   Text(
                     "Selamat datang di Jajan.id!",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.orange,
                       fontSize: 36,
