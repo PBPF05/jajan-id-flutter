@@ -4,6 +4,7 @@ import 'package:jajan_id/screens/home.dart';
 import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/screens/auth/login.dart';
 import 'package:jajan_id/screens/dashboard/dashboard.dart';
+import 'package:jajan_id/screens/katalog/katalogtoko.dart';
 import 'package:jajan_id/screens/kontak/kontak.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -15,9 +16,9 @@ class AppDrawer extends StatefulWidget {
 
 class _AppDrawerState extends State<AppDrawer> {
   final pages = [
-    ["Home", const MyHomePage(title: "Homepage")],
+    ["Home", const MyHomePage(title: "Homepage",)],
     ["Login", const LoginPage()],
-    ["Detail", const DetailPage(title: '',)],
+    ["Katalog", const KatalogListPage(title: '',)],
     ["Chat", const ChatListPage(title: '',)],
     ["Dashboard", const DashBoardPage(title: "Dashboard")],
     ["Send us a Message", const MyFormPage(title: 'Kontak',)],

@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
           title: const Text("Welcome!"),
           centerTitle: true,
         ),
-        drawer: const AppDrawer(),
+        // drawer: const AppDrawer(),
         body: Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -70,9 +70,6 @@ class _LoginPageState extends State<LoginPage> {
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return "Username must not empty!";
-                                }
-                                if (value.length < 5) {
-                                  return "Username must at least contains 5 characters!";
                                 }
                                 return null;
                               },
@@ -144,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   final response = await request.login(
-                                      "https://jajan-id.up.railway.app/login_flutter",
+                                      "login_flutter/",
                                       jsonEncode(<String, String>{
                                         'username': username,
                                         'password': password
@@ -171,9 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                const MyHomePage(
-                                                    title: 'Program Counter')));
+                                            builder: (context) => const MyHomePage(title: '',)));
                                   } else {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(

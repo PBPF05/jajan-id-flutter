@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:jajan_id/req.dart';
 import 'package:jajan_id/screens/home.dart';
+import 'package:jajan_id/screens/splash.dart';
 import 'package:provider/provider.dart';
 
 Future main() async {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.orange,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const SplashPage(),
       ),
     );
   }
