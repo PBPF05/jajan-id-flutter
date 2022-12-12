@@ -9,8 +9,6 @@ import 'package:jajan_id/screens/dashboard/tambah_barang.dart';
 import 'package:jajan_id/model/toko_model.dart';
 import 'package:http/http.dart' as http;
 
-import '../../req.dart';
-
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({super.key, required this.title});
 
@@ -129,7 +127,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     [
                       'https://img.icons8.com/office/80/null/time-span.png',
                       'Jadwal Operasional',
-                      OperationalSchedPage()
+                      const OperationalSchedPage()
                     ],
                     [
                       'https://img.icons8.com/color/96/null/hamper.png',

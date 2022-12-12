@@ -41,7 +41,7 @@ class _ProductListPageState extends State<ProductListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final req = context.watch<AppRequest>();
+    // final req = context.watch<AppRequest>();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Daftar Barang"),
