@@ -1,9 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
 import 'package:jajan_id/req.dart';
 import 'package:jajan_id/screens/home.dart';
-import 'package:jajan_id/screens/register.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:jajan_id/screens/auth/register.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,27 +19,27 @@ class _LoginPageState extends State<LoginPage> {
   String username = "";
   String password = "";
 
-  @override
+   @override
   Widget build(BuildContext context) {
     final request = context.read<AppRequest>();
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 251, 187, 68),
-        title: const Text("Login"),
-        centerTitle: true,
-      ),
-      drawer: const AppDrawer(),
-      body: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            image: const AssetImage("assets/images/shopping-online.png"),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.5), BlendMode.dstATop),
+        appBar: AppBar(
+          title: const Text("Welcome!"),
+          centerTitle: true,
+        ),
+        drawer: const AppDrawer(),
+        body: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: const AssetImage("assets/images/shopping-online.png"),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5), BlendMode.dstATop),
             )),
-            child: Form(
+            child: 
+            Form(
                 key: _formKey,
                 child: Center(
                   child: Container(
@@ -141,14 +142,18 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(20))),
                               ),
-                              onPressed: () {
-                                final req = Provider.of<AppRequest>(context, listen: false);
-                                req.login("auth/login", {
-                                  "username": username,
-                                  "password": password,
-                                });
+                              onPressed: () async {
+                                if (_formKey.currentState!.validate()) {
+                                  final response = await request.login(
+                                      "https://jajan-id.up.railway.app/login_flutter",
+                                      jsonEncode(<String, String>{
+                                        'username': username,
+                                        'password': password
+                                      }));
 
-                                bool status = req.jsonData as bool;
+                                  // print(response.body);
+                                  bool status = response["status"];
+                                  // print(jsonDecode(response.body));
 
                                   if (status) {
                                     ScaffoldMessenger.of(context)
@@ -171,12 +176,11 @@ class _LoginPageState extends State<LoginPage> {
                                         MaterialPageRoute(
                                             builder: (context) => const MyHomePage(
                                                 title:
-                                                    'Flutter Demo Home Page')));
-
+                                                    'Program Counter')));
                                   } else {
                                     ScaffoldMessenger.of(context)
-                                      .showSnackBar(SnackBar(
-                                          content: Row(
+                                        .showSnackBar(SnackBar(
+                                            content: Row(
                                       children: const [
                                         Icon(Icons.warning_amber_rounded,
                                             size: 30, color: Colors.white),
@@ -191,9 +195,10 @@ class _LoginPageState extends State<LoginPage> {
                                       ],
                                     )));
                                   }
+                                }
                               },
                               child: const Text(
-                                "Login",
+                                "LOGIN",
                                 style: TextStyle(
                                     letterSpacing: 2,
                                     fontWeight: FontWeight.bold,
@@ -214,12 +219,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ],
-                      ),
-                  ),
-                ),
-            ),
-      ),
-    );
+                      )),
+                ))));
   }
 }
 

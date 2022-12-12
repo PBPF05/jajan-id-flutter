@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         return request;
       },
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Jajan.id',
         theme: ThemeData(
           // This is the theme of your application.
           //
