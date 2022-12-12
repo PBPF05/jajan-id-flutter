@@ -6,7 +6,7 @@ import 'package:jajan_id/req.dart';
 import 'package:provider/provider.dart';
 
 class ChatListPage extends StatefulWidget {
-  const ChatListPage({super.key, required String title});
+  const ChatListPage({super.key});
 
   @override
   State<ChatListPage> createState() => _ChatListPageState();

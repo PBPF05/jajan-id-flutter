@@ -168,7 +168,8 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const MyHomePage(title: '',)));
+                                            builder: (context) =>
+                                                const MyHomePage()));
                                   } else {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(
