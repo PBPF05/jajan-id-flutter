@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/toko_model.dart';
 
 class StoreDetailPage extends StatefulWidget{
-  StoreDetailPage(this.toko);
+  const StoreDetailPage(this.toko, {super.key});
 
   final Toko toko;
   @override
@@ -16,7 +15,7 @@ class _StoreDetailPageState extends State<StoreDetailPage>{
   _showNama(){
     return Text(
       "Nama toko: ${widget.toko.fields.nama}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -25,7 +24,7 @@ class _StoreDetailPageState extends State<StoreDetailPage>{
   _showDeskripsi(){
     return Text(
       "Deskripsi: ${widget.toko.fields.deskripsi}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -34,7 +33,7 @@ class _StoreDetailPageState extends State<StoreDetailPage>{
   _showLokasi(){
     return Text(
       "Lokasi Toko: ${widget.toko.fields.lokasi}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -43,7 +42,7 @@ class _StoreDetailPageState extends State<StoreDetailPage>{
   _showKota(){
     return Text(
       "Kota toko: ${widget.toko.fields.kota}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -52,7 +51,7 @@ class _StoreDetailPageState extends State<StoreDetailPage>{
   _showProvinsi(){
     return Text(
       "Provinsi toko: ${widget.toko.fields.provinsi}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -64,7 +63,7 @@ class _StoreDetailPageState extends State<StoreDetailPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Detail Toko"),
+        title: const Text("Detail Toko"),
       ),
       body: Center(
           child: Padding(

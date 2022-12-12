@@ -1,15 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
-import 'package:jajan_id/screens/dashboard/create-toko.dart';
-import 'package:jajan_id/screens/dashboard/daftar-barang.dart';
-import 'package:jajan_id/screens/dashboard/detail-toko.dart';
-import 'package:jajan_id/screens/dashboard/jadwal-operasional.dart';
-import 'package:jajan_id/screens/dashboard/tambah-barang.dart';
-import 'package:provider/provider.dart';
+import 'package:jajan_id/screens/dashboard/create_toko.dart';
+import 'package:jajan_id/screens/dashboard/daftar_barang.dart';
+import 'package:jajan_id/screens/dashboard/detail_toko.dart';
+import 'package:jajan_id/screens/dashboard/jadwal_operasional.dart';
+import 'package:jajan_id/screens/dashboard/tambah_barang.dart';
 import 'package:jajan_id/model/toko_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../req.dart';
 
@@ -72,7 +70,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         body:
         FutureBuilder(
             future: fetchToDo(),
@@ -108,7 +106,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return CreateTokoPage();
+                                  return const CreateTokoPage();
                                 }),
                               );
                             },
@@ -122,7 +120,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     ),
                   );
                 } else {
-                  final isi_card = [
+                  final isiCard = [
                     [
                       'https://img.icons8.com/color/96/null/edit--v1.png',
                       'Detail',
@@ -136,7 +134,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     [
                       'https://img.icons8.com/color/96/null/hamper.png',
                       'Daftar Barang',
-                      ProductListPage()
+                      const ProductListPage()
                     ],
                     [
                       'https://img.icons8.com/dusk/64/null/plus-2-math.png',
@@ -145,7 +143,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     ]
                   ];
                   return
-                    Container(
+                    SizedBox(
                     height: size.height * 3,
                     child: Column(
                       children: [
@@ -174,7 +172,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                   ),
                                   Text(
                                     "${snapshot.data![0].fields.deskripsi}",
-                                    style: TextStyle(height: 2),
+                                    style: const TextStyle(height: 2),
                                   )
                                 ],
                               ),
@@ -189,14 +187,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                       bukaTutup = !bukaTutup;
                                     });
                                   },
-                                  child: Text(
-                                    bukaTutup ? "Tutup" : "Buka",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: bukaTutup
                                           ? Colors.red
                                           : Colors.green),
+                                  child: Text(
+                                    bukaTutup ? "Tutup" : "Buka",
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
                                 )
                               ],
                             )
@@ -208,7 +206,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 crossAxisSpacing: 10,
                                 primary: false,
                                 crossAxisCount: 2,
-                                children: isi_card
+                                children: isiCard
                                     .map(
                                       (e) => InkWell(
                                         onTap: () {
@@ -226,7 +224,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                               Image.network(e[0] as String),
                                               Text(
                                                 e[1] as String,
-                                                style: TextStyle(height: 2.5),
+                                                style: const TextStyle(height: 2.5),
                                               )
                                             ],
                                           ),

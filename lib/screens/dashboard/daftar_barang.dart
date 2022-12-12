@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/req.dart';
-import 'package:jajan_id/screens/dashboard/detail-barang.dart';
+import 'package:jajan_id/screens/dashboard/detail_barang.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 

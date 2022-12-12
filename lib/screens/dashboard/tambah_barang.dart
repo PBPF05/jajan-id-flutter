@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/req.dart';
@@ -8,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../../model/toko_model.dart';
 
 class AddProductPage extends StatefulWidget{
-  AddProductPage(this.toko);
+  const AddProductPage(this.toko, {super.key});
 
   final Toko toko;
   @override
@@ -166,7 +164,7 @@ class _AddProductPageState extends State<AddProductPage>{
                     //   }));
                     // };
 
-                  }, child: Text("Submit"))
+                  }, child: const Text("Submit"))
                 ],
               ),
             ),

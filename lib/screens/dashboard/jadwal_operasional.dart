@@ -1,11 +1,11 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/model/jadwal_model.dart';
 import 'package:http/http.dart' as http;
 
 class OperationalSchedPage extends StatefulWidget{
+  const OperationalSchedPage({super.key});
+
   @override
   State<StatefulWidget> createState() => _OperationalSchedPageState();
   
@@ -40,7 +40,7 @@ class _OperationalSchedPageState extends State<OperationalSchedPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Jadwal Operasional"),
+        title: const Text("Jadwal Operasional"),
       ),
       body: FutureBuilder(
           future: fetchToDo(),

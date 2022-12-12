@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jajan_id/screens/dashboard/daftar-barang.dart';
+import 'package:jajan_id/screens/dashboard/daftar_barang.dart';
 
 import '../../model/barang_model.dart';
 
 class ProductDetailPage extends StatefulWidget{
-  ProductDetailPage(this.barang);
+  const ProductDetailPage(this.barang, {super.key});
 
   final Barang barang;
 
@@ -18,7 +17,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>{
   _showNama(){
     return Text(
       "Nama barang: ${widget.barang.fields.nama}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -27,7 +26,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>{
   _showHarga(){
     return Text(
       "Harga: ${widget.barang.fields.harga}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -36,7 +35,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>{
   _showJenis(){
     return Text(
       "Tipe barang: ${widget.barang.fields.jenis}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -45,7 +44,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>{
   _showDeskripsi(){
     return Text(
       "Deskripsi: ${widget.barang.fields.deskripsi}",
-      style: TextStyle(
+      style: const TextStyle(
           fontWeight: FontWeight.bold
       ),
     );
@@ -91,7 +90,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>{
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton(
                       onPressed: (){Navigator.pop(context);},
-                      child: Text("Back"),
+                      child: const Text("Back"),
                     ),
                   )
                 ]),
