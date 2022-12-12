@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:jajan_id/req.dart';
 import 'package:provider/provider.dart';
 
-class AddProductPage extends StatefulWidget{
-  const AddProductPage({super.key});
+import '../../model/toko_model.dart';
 
+class AddProductPage extends StatefulWidget{
+  AddProductPage(this.toko);
+
+  final Toko toko;
   @override
   State<StatefulWidget> createState() => _AddProductPageState();
 }
@@ -24,7 +27,8 @@ class _AddProductPageState extends State<AddProductPage>{
 
   @override
   Widget build(BuildContext context) {
-    final req = Provider.of<AppRequest>(context, listen: false);
+    final response = context.watch<AppRequest>();
+    // final req = Provider.of<AppRequest>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text("Tambah Barang"),
@@ -150,16 +154,17 @@ class _AddProductPageState extends State<AddProductPage>{
                       },
                     ),
                   ),
-                  ElevatedButton(onPressed: (){
-                    setState(() {
-                      var response = context.read<AppRequest>();
-                      response.postJson("dashboard/tambah/", jsonEncode({
+                  ElevatedButton(onPressed: () async {
+                    // Provider.of<AppRequest>(context, listen: false);
+                    if(_formKey.currentState!.validate()) {
+                      final finalReq = response.postJson("dashboard/tambah/json/", jsonEncode({
                         "inputNama" : inputNama,
                         "inputHarga" : inputHarga,
                         "inputJenis" : inputJenis,
-                        "inputDeskripsi" : inputDeskripsi
+                        "inputDeskripsi" : inputDeskripsi,
+                        "inputToko" : widget.toko.pk,
                       }));
-                    });
+                    };
 
                   }, child: Text("Submit"))
                 ],

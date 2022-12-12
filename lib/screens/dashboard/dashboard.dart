@@ -11,6 +11,8 @@ import 'package:jajan_id/model/toko_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../req.dart';
+
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({super.key, required this.title});
 
@@ -51,7 +53,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
       }
     }
     // Toko tokoPengguna = Toko.fromJson(data);
-    debugPrint(listToko[0].fields.nama);
+    // debugPrint(listToko[0].fields.nama);
 
     return listToko;
   }
@@ -64,28 +66,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
     // throw UnimplementedError();
     var size = MediaQuery.of(context).size;
 
-    final isi_card = [
-      [
-        'https://img.icons8.com/color/96/null/edit--v1.png',
-        'Detail',
-        StoreDetailPage()
-      ],
-      [
-        'https://img.icons8.com/office/80/null/time-span.png',
-        'Jadwal Operasional',
-        OperationalSchedPage()
-      ],
-      [
-        'https://img.icons8.com/color/96/null/hamper.png',
-        'Daftar Barang',
-        ProductListPage()
-      ],
-      [
-        'https://img.icons8.com/dusk/64/null/plus-2-math.png',
-        'Tambah Barang',
-        AddProductPage()
-      ]
-    ];
     return Scaffold(
         appBar: AppBar(
           // Here we take the value from the MyHomePage object that was created by
@@ -142,6 +122,28 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     ),
                   );
                 } else {
+                  final isi_card = [
+                    [
+                      'https://img.icons8.com/color/96/null/edit--v1.png',
+                      'Detail',
+                      StoreDetailPage(snapshot.data![0])
+                    ],
+                    [
+                      'https://img.icons8.com/office/80/null/time-span.png',
+                      'Jadwal Operasional',
+                      OperationalSchedPage()
+                    ],
+                    [
+                      'https://img.icons8.com/color/96/null/hamper.png',
+                      'Daftar Barang',
+                      ProductListPage()
+                    ],
+                    [
+                      'https://img.icons8.com/dusk/64/null/plus-2-math.png',
+                      'Tambah Barang',
+                      AddProductPage(snapshot.data![0])
+                    ]
+                  ];
                   return
                     Container(
                     height: size.height * 3,
@@ -182,6 +184,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 ElevatedButton(
                                   onPressed: () {
                                     setState(() {
+                                      final req = Provider.of<AppRequest>(context, listen: false);
+                                      req.postJson('dashboard/bukatutup/', null);
                                       bukaTutup = !bukaTutup;
                                     });
                                   },
