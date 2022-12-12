@@ -173,12 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontPackage: 'outline_material_icons')),
           getBottomNavigationItem(
               'Logout',
-              const IconData(0xe3b3,
-                  fontFamily: 'outline_material_icons',
-                  fontPackage: 'outline_material_icons')),
-          getBottomNavigationItem(
-              'Send Message',
-              const IconData(0xe3b3,
+              const IconData(0xe90c,
                   fontFamily: 'outline_material_icons',
                   fontPackage: 'outline_material_icons')),
         ], 
