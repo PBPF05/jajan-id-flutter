@@ -1,15 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
-import 'package:jajan_id/screens/dashboard/create-toko.dart';
-import 'package:jajan_id/screens/dashboard/daftar-barang.dart';
-import 'package:jajan_id/screens/dashboard/detail-toko.dart';
-import 'package:jajan_id/screens/dashboard/jadwal-operasional.dart';
-import 'package:jajan_id/screens/dashboard/tambah-barang.dart';
-import 'package:provider/provider.dart';
+import 'package:jajan_id/screens/dashboard/create_toko.dart';
+import 'package:jajan_id/screens/dashboard/daftar_barang.dart';
+import 'package:jajan_id/screens/dashboard/detail_toko.dart';
+import 'package:jajan_id/screens/dashboard/jadwal_operasional.dart';
+import 'package:jajan_id/screens/dashboard/tambah_barang.dart';
 import 'package:jajan_id/model/toko_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({super.key, required this.title});
@@ -31,7 +29,7 @@ class DashBoardPage extends StatefulWidget {
 
 class _DashBoardPageState extends State<DashBoardPage> {
   Future<List<Toko>> fetchToDo() async {
-    var url = Uri.parse('http://localhost:8000/dashboard/json/');
+    var url = Uri.parse('https://jajan-id.up.railway.app/dashboard/json/');
     var response = await http.get(
       url,
       headers: {
@@ -51,7 +49,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
       }
     }
     // Toko tokoPengguna = Toko.fromJson(data);
-    debugPrint(listToko[0].fields.nama);
+    // debugPrint(listToko[0].fields.nama);
 
     return listToko;
   }
@@ -64,35 +62,13 @@ class _DashBoardPageState extends State<DashBoardPage> {
     // throw UnimplementedError();
     var size = MediaQuery.of(context).size;
 
-    final isi_card = [
-      [
-        'https://img.icons8.com/color/96/null/edit--v1.png',
-        'Detail',
-        StoreDetailPage()
-      ],
-      [
-        'https://img.icons8.com/office/80/null/time-span.png',
-        'Jadwal Operasional',
-        OperationalSchedPage()
-      ],
-      [
-        'https://img.icons8.com/color/96/null/hamper.png',
-        'Daftar Barang',
-        ProductListPage()
-      ],
-      [
-        'https://img.icons8.com/dusk/64/null/plus-2-math.png',
-        'Tambah Barang',
-        AddProductPage()
-      ]
-    ];
     return Scaffold(
         appBar: AppBar(
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-        drawer: AppDrawer(),
+        drawer: const AppDrawer(),
         body:
         FutureBuilder(
             future: fetchToDo(),
@@ -100,7 +76,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                if (!snapshot.hasData) {
+                if (!snapshot.hasData || snapshot.data == null) {
                   return Center(
                     // child: Card(
                     child: Column(
@@ -128,7 +104,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return CreateTokoPage();
+                                  return const CreateTokoPage();
                                 }),
                               );
                             },
@@ -142,8 +118,30 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     ),
                   );
                 } else {
+                  final isiCard = [
+                    [
+                      'https://img.icons8.com/color/96/null/edit--v1.png',
+                      'Detail',
+                      StoreDetailPage(snapshot.data![0])
+                    ],
+                    [
+                      'https://img.icons8.com/office/80/null/time-span.png',
+                      'Jadwal Operasional',
+                      const OperationalSchedPage()
+                    ],
+                    [
+                      'https://img.icons8.com/color/96/null/hamper.png',
+                      'Daftar Barang',
+                      const ProductListPage()
+                    ],
+                    [
+                      'https://img.icons8.com/dusk/64/null/plus-2-math.png',
+                      'Tambah Barang',
+                      AddProductPage(snapshot.data![0])
+                    ]
+                  ];
                   return
-                    Container(
+                    SizedBox(
                     height: size.height * 3,
                     child: Column(
                       children: [
@@ -172,7 +170,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                   ),
                                   Text(
                                     "${snapshot.data![0].fields.deskripsi}",
-                                    style: TextStyle(height: 2),
+                                    style: const TextStyle(height: 2),
                                   )
                                 ],
                               ),
@@ -182,17 +180,19 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 ElevatedButton(
                                   onPressed: () {
                                     setState(() {
+                                      // final req = Provider.of<AppRequest>(context, listen: false);
+                                      // req.postJson('dashboard/bukatutup/', null);
                                       bukaTutup = !bukaTutup;
                                     });
                                   },
-                                  child: Text(
-                                    bukaTutup ? "Tutup" : "Buka",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: bukaTutup
                                           ? Colors.red
                                           : Colors.green),
+                                  child: Text(
+                                    bukaTutup ? "Tutup" : "Buka",
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
                                 )
                               ],
                             )
@@ -204,7 +204,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                 crossAxisSpacing: 10,
                                 primary: false,
                                 crossAxisCount: 2,
-                                children: isi_card
+                                children: isiCard
                                     .map(
                                       (e) => InkWell(
                                         onTap: () {
@@ -222,7 +222,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                                               Image.network(e[0] as String),
                                               Text(
                                                 e[1] as String,
-                                                style: TextStyle(height: 2.5),
+                                                style: const TextStyle(height: 2.5),
                                               )
                                             ],
                                           ),

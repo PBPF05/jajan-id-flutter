@@ -1,9 +1,7 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/req.dart';
-import 'package:jajan_id/screens/dashboard/detail-barang.dart';
+import 'package:jajan_id/screens/dashboard/detail_barang.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,7 +16,7 @@ class ProductListPage extends StatefulWidget {
 
 class _ProductListPageState extends State<ProductListPage> {
   Future<List<Barang>> fetchToDo() async {
-    var url = Uri.parse('http://localhost:8000/dashboard/barang/json/');
+    var url = Uri.parse('https://jajan-id.up.railway.app/dashboard/barang/json/');
     var response = await http.get(
       url,
       headers: {
@@ -43,10 +41,10 @@ class _ProductListPageState extends State<ProductListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final req = context.watch<AppRequest>();
+    // final req = context.watch<AppRequest>();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Daftar Barang"),
+        title: const Text("Daftar Barang"),
       ),
       body: FutureBuilder(
           future: fetchToDo(),

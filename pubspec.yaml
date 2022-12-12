@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   outline_material_icons: ^0.1.1
+  cupertino_icons: ^1.0.2
   pbp_django_auth: ^0.3.0
   provider: ^6.0.4
   flutter_dotenv: ^5.0.2
