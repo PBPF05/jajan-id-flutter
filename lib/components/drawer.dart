@@ -3,7 +3,9 @@ import 'package:jajan_id/screens/chat/list.dart';
 import 'package:jajan_id/screens/home.dart';
 import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/screens/auth/login.dart';
+import 'package:jajan_id/screens/katalog/katalogtoko.dart';
 import 'package:jajan_id/screens/dashboard/dashboard.dart';
+import 'package:jajan_id/screens/kontak/kontak.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -19,6 +21,7 @@ class _AppDrawerState extends State<AppDrawer> {
     ["Detail", const DetailPage()],
     ["Chat", const ChatListPage()],
     ["Dashboard", const DashBoardPage(title: "Dashboard")],
+    ["Send us a Message", const MyFormPage()],
   ];
 
   @override
