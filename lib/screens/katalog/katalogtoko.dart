@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/models/katalog.dart';
-import 'package:jajan_id/main.dart';
+import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/components/drawer.dart';
 
 class KatalogListPage extends StatefulWidget {
@@ -177,6 +177,18 @@ class _KatalogListPageState extends State<KatalogListPage> {
                                 ),
                                 ),
                                 Text(""),
+                                TextButton(
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const DetailPage()),
+                                  );
+                                },
+                                  child: Text('Detail'),
+                                ),
                                 Text(
                                   "${snapshot.data![index].fields.deskripsi}",                              
                                   style: const TextStyle(
@@ -300,6 +312,18 @@ class _KatalogListPageState extends State<KatalogListPage> {
                                 ),
                                 ),
                                 Text(""),
+                                TextButton(
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const DetailPage()),
+                                  );
+                                },
+                                  child: Text('Detail'),
+                                ),
                                 Text(
                                   "${snapshot.data![index].fields.deskripsi}",                              
                                   style: const TextStyle(
