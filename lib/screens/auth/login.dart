@@ -71,9 +71,6 @@ class _LoginPageState extends State<LoginPage> {
                                 if (value!.isEmpty) {
                                   return "Username must not empty!";
                                 }
-                                if (value.length < 5) {
-                                  return "Username must at least contains 5 characters!";
-                                }
                                 return null;
                               },
                               maxLength: 20,
@@ -144,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   final response = await request.login(
-                                      "https://jajan-id.up.railway.app/login_flutter",
+                                      "login_flutter/",
                                       jsonEncode(<String, String>{
                                         'username': username,
                                         'password': password

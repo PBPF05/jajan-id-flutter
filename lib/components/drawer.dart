@@ -5,6 +5,7 @@ import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/screens/auth/login.dart';
 import 'package:jajan_id/screens/katalog/katalogtoko.dart';
 import 'package:jajan_id/screens/dashboard/dashboard.dart';
+import 'package:jajan_id/screens/kontak/kontak.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -16,7 +17,11 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   final pages = [
     ["Counter", const MyHomePage(title: "Program Counter")],
-    ["Login", const LoginPage()]
+    ["Login", const LoginPage()],
+    ["Detail", const DetailPage()],
+    ["Chat", const ChatListPage()],
+    ["Dashboard", const DashBoardPage(title: "Dashboard")],
+    ["Send us a Message", const MyFormPage()],
   ];
 
   @override
