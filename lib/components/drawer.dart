@@ -15,12 +15,12 @@ class AppDrawer extends StatefulWidget {
 
 class _AppDrawerState extends State<AppDrawer> {
   final pages = [
-    ["Counter", const MyHomePage(title: "Program Counter")],
+    ["Home", const MyHomePage(title: "Homepage")],
     ["Login", const LoginPage()],
-    ["Detail", const DetailPage()],
-    ["Chat", const ChatListPage()],
+    ["Detail", const DetailPage(title: '',)],
+    ["Chat", const ChatListPage(title: '',)],
     ["Dashboard", const DashBoardPage(title: "Dashboard")],
-    ["Send us a Message", const MyFormPage()],
+    ["Send us a Message", const MyFormPage(title: 'Kontak',)],
   ];
 
   @override
