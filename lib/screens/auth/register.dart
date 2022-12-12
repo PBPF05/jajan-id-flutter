@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jajan_id/screens/login.dart';
+import 'package:jajan_id/screens/auth/login.dart';
 import 'package:jajan_id/components/drawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -172,7 +172,7 @@ class RegisterPage extends StatelessWidget {
                       if (_registFormKey.currentState!.validate()) {
                         final response = await http.post(
                             Uri.parse(
-                                "https://web-production-1710.up.railway.app/register-flutter/"),
+                                "https://jajan-id.up.railway.app/register_flutter/"),
                             headers: <String, String>{
                               'Content-Type': 'application/json;charset=UTF-8'
                             },
