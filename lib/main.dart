@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:jajan_id/req.dart';
 import 'package:jajan_id/screens/home.dart';
+import 'package:jajan_id/screens/splash.dart';
 import 'package:provider/provider.dart';
 
 Future main() async {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         return request;
       },
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Jajan.id',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           // This is the theme of your application.
           //
@@ -32,9 +34,9 @@ class MyApp extends StatelessWidget {
           // or simply save your changes to "hot reload" in a Flutter IDE).
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.orange,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const SplashPage(),
       ),
     );
   }
