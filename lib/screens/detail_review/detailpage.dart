@@ -1,49 +1,27 @@
-import 'package:jajan_id/model/detailbarang_model.dart';
+import 'package:jajan_id/model/detailjadwal_model.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:jajan_id/screens/detail_review/reviewform.dart';
-// import 'package:jajan_id/ReviewForm.dart';
+import 'package:jajan_id/req.dart';
+import 'package:provider/provider.dart';
 
-
-// https://jajan-id.up.railway.app/katalog/json
+// https://jajan-id.up.railway.app/detail/jam_json
 
 class DetailPage extends StatefulWidget {
-  // final int index;
-
+  // final String data;
   const DetailPage({Key? key}) : super(key: key);
 
   @override
   _DetailPageState createState() => _DetailPageState();
-  // Future<String<DataDetail>> fetchDetailbarang() async {
-  //       var url = Uri.parse(
-  //         'https://jajan-id.up.railway.app/katalog/json');
-  //       var response = await http.get(
-  //       url,
-  //       headers: {
-  //           "Access-Control-Allow-Origin": "*",
-  //           "Content-Type": "application/json",
-  //       },
-  //       );
-
-  //       // melakukan decode response menjadi bentuk json
-  //       var data = jsonDecode(utf8.decode(response.bodyBytes));
-
-  //       // // melakukan konversi data json menjadi object ToDo
-  //       // List<DataDetail> listToDo = [];
-  //       // for (var d in data) {
-  //       // if (d != null) {
-  //       //     listToDo.add(DataDetail.fromJson(d));
-  //       // }
-  //       // }
-  //       DataDetail dataDetail = DataDetail.fromJson(data);
-
-  //       return dataDetail;
-  //   }
+  Future<DetailJadwal> fetchDetail() async {
+    var req = context.read<AppRequest>();
+    Map<String, dynamic> data = await req.get("detail/jam_json");
+    return DetailJadwal.fromJson(data);
+}
 }
 
 class _DetailPageState extends State<DetailPage> {
-  bool _like = false;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                   children: <Widget>[
                     Text(
                       // "${snapshot.data["nama"]}",
-                      "Nama Toko",
+                      "Detail Toko",
                       style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
@@ -98,26 +76,8 @@ class _DetailPageState extends State<DetailPage> {
                     SizedBox(
                       height: 5,
                     ),
-                    // Container(
-                    //   height: 50,
-                    //   width: width,
-                    //   child: ListView.builder(
-                    //     itemCount: [widget.index].rate,
-                    //     scrollDirection: Axis.horizontal,
-                    //     itemBuilder: (context, int key) {
-                    //       return Icon(
-                    //         Icons.star,
-                    //         color: Colors.yellow[900],
-                    //         size: 34,
-                    //       );
-                    //     },
-                    //   ),
-                    // ),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
                     Text(
-                      "Description",
+                      data["hari"],
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
@@ -128,7 +88,7 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                     Text(
                       // "${snapshot.data["deskripsi"]}",
-                      "Deskripsi",
+                      data["deskripsi"],
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -154,7 +114,7 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                             Text(
                               // "${snapshot.data["harga"]}",
-                              "Harga",
+                              data["harga"],
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 28,
@@ -185,20 +145,23 @@ class _DetailPageState extends State<DetailPage> {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
-                    // nanti balik ke page katalog
+                    // nanti balik ke page katalog?
                   },
                   child: Icon(
                     Icons.keyboard_backspace,
                     size: 42,
-                    color: Colors.white,
+                    color: Colors.orange,
                   ),
                 ),
               ),
               Positioned(
                 right: 30,
                 top: height * 0.45,
-                child: GestureDetector(
-                  onTap: () {
+                child: IconButton(
+                  icon: Icon(Icons.add_reaction_outlined ),
+                  iconSize: 50,
+                  color: Colors.orange,
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -207,19 +170,20 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         );
                       },
-                  child: Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(35),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              blurRadius: 5,
-                              spreadRadius: 1)
-                        ]),
-                  ),
+                  // child: Container(
+                  //   height: 70,
+                  //   width: 70,
+                  //   decoration: BoxDecoration(
+                  //       color: Colors.orange,
+                  //       borderRadius: BorderRadius.circular(35),
+                  //       icon: Icon(Icons.add_reaction_outlined ),
+                  //       boxShadow: [
+                  //         BoxShadow(
+                  //             color: Colors.black.withOpacity(0.5),
+                  //             blurRadius: 5,
+                  //             spreadRadius: 1)
+                  //       ]),
+                  // ),
                 ),
               ),
             ]
@@ -229,14 +193,3 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 }
-
-//                   ),
-//                 ),
-//               );
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
