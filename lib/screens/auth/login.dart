@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
           title: const Text("Welcome!"),
           centerTitle: true,
         ),
-        drawer: const AppDrawer(),
+        // drawer: const AppDrawer(),
         body: Container(
             width: double.infinity,
             decoration: BoxDecoration(

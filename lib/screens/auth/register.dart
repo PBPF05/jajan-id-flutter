@@ -38,7 +38,7 @@ class RegisterPage extends StatelessWidget {
           flexibleSpace: Container(
             decoration: const BoxDecoration(color: Colors.blueGrey),
           )),
-      drawer: const AppDrawer(),
+      // drawer: const AppDrawer(),
       body: Form(
         key: _registFormKey,
         child: Center(

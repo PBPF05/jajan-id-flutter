@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jajan_id/screens/login.dart';
+import 'package:jajan_id/screens/auth/login.dart';
+import 'package:jajan_id/screens/auth/register.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -66,7 +67,7 @@ class SplashPage extends StatelessWidget {
                     onPressed: () => Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (ctx) => const LoginPage(),
+                        builder: (ctx) => RegisterPage(),
                       ),
                     ),
                     style: circularBtnStyle,
