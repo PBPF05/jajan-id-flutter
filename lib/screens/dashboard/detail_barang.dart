@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jajan_id/screens/dashboard/daftar_barang.dart';
-
 import '../../model/barang_model.dart';
 
 class ProductDetailPage extends StatefulWidget{

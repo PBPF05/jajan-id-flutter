@@ -224,7 +224,20 @@ class _CreateTokoPageState extends State<CreateTokoPage> {
                     ),
                   ],
                 ),
-                ElevatedButton(onPressed: (){}, child: const Text("Submit"))
+                ElevatedButton(onPressed: (){
+                  // Provider.of<AppRequest>(context, listen: false);
+                  // if(_formKey.currentState!.validate()) {
+                  //   final finalReq = response.postJson("dashboard/buat-toko/", jsonEncode({
+                  //   'nama' : _namaToko
+                  //   'provinsi' :_provinsiToko
+                  //   'kota' : _kotaToko
+                  //   'lokasi' : _lokasiToko
+                  //   'deskripsi' : _deskripsiToko
+                  //   'range_harga': _rangeHarga
+                  //   'kondisi' : _tingkatRamai
+                  //   }));
+                  // };
+                }, child: const Text("Submit"))
               ],
             ),
           ),

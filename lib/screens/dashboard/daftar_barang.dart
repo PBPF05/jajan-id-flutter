@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jajan_id/req.dart';
 import 'package:jajan_id/screens/dashboard/detail_barang.dart';
@@ -46,7 +44,7 @@ class _ProductListPageState extends State<ProductListPage> {
     final req = context.watch<AppRequest>();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Daftar Barang"),
+        title: const Text("Daftar Barang"),
       ),
       body: FutureBuilder(
           future: fetchToDo(),
