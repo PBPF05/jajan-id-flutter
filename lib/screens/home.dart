@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Center(
                   child: Image.asset(
-                    'images/main/$imageName.png',
+                    'assets/images/main/$imageName.png',
                     height: 80.0,
                   ),
                 ),
@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Center(
                   child: Image.asset(
-                    'images/main/$imageName.png',
+                    'assets/images/main/$imageName.png',
                     height: 80.0,
                   ),
                 ),
@@ -224,7 +224,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Center(
                   child: Image.asset(
-                    'images/main/$imageName.png',
+                    'assets/images/main/$imageName.png',
                     height: 80.0,
                   ),
                 ),
