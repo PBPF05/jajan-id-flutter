@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:jajan_id/screens/chat/list.dart';
 import 'package:jajan_id/screens/dashboard/dashboard.dart';
 import 'package:jajan_id/components/drawer.dart';
+import 'package:jajan_id/screens/detail_review/detailpage.dart';
+import 'package:jajan_id/screens/kontak/kontak.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,7 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Expanded getExpanded(String imageName, String mainText, String subText) {
+  Expanded getExpandedDashboard(
+      String imageName, String mainText, String subText) {
     return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
@@ -100,6 +104,166 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Expanded getExpandedKatalog(
+      String imageName, String mainText, String subText) {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
+        child: Container(
+          margin:
+              EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
+          decoration: getBoxDecoration(),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Image.asset(
+                    'images/main/$imageName.png',
+                    height: 80.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  mainText,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  subText,
+                  style: const TextStyle(
+//                              fontWeight: FontWeight.,
+                    fontSize: 10.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const DashBoardPage(
+                        title: '',
+                      )));
+        },
+      ),
+    );
+  }
+
+  Expanded getExpandedChat(String imageName, String mainText, String subText) {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
+        child: Container(
+          margin:
+              EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
+          decoration: getBoxDecoration(),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Image.asset(
+                    'images/main/$imageName.png',
+                    height: 80.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  mainText,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  subText,
+                  style: const TextStyle(
+//                              fontWeight: FontWeight.,
+                    fontSize: 10.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ChatListPage()));
+        },
+      ),
+    );
+  }
+
+  Expanded getExpandedDetail(
+      String imageName, String mainText, String subText) {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(padding: EdgeInsets.all(0)),
+        child: Container(
+          margin:
+              EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
+          decoration: getBoxDecoration(),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Image.asset(
+                    'images/main/$imageName.png',
+                    height: 80.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  mainText,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  subText,
+                  style: const TextStyle(
+//                              fontWeight: FontWeight.,
+                    fontSize: 10.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const MyFormPage(
+                        title: '',
+                      )));
+        },
+      ),
+    );
+  }
+
   BottomNavigationBarItem getBottomNavigationItem(
       String title, IconData IconName) {
     return BottomNavigationBarItem(
@@ -139,8 +303,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  getExpanded('dashboard', 'Dashboard', ''),
-                  getExpanded('catalogue', 'Catalogue', ''),
+                  getExpandedDashboard('dashboard', 'Dashboard', ''),
+                  getExpandedKatalog('catalogue', 'Catalogue', ''),
                 ],
               ),
             ),
@@ -148,8 +312,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  getExpanded('chat', 'Chat', ''),
-                  getExpanded('detail', 'Detail', ''),
+                  getExpandedChat('chat', 'Chat', ''),
+                  getExpandedDetail('mail', 'Send Message', ''),
                 ],
               ),
             ),

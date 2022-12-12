@@ -7,7 +7,7 @@ import 'package:jajan_id/screens/detail_review/detailpage.dart';
 import 'package:jajan_id/components/drawer.dart';
 
 class KatalogListPage extends StatefulWidget {
-    const KatalogListPage({Key? key}) : super(key: key);
+    const KatalogListPage({Key? key, required String title}) : super(key: key);
 
     @override
     _KatalogListPageState createState() => _KatalogListPageState();
@@ -184,7 +184,7 @@ class _KatalogListPageState extends State<KatalogListPage> {
                                   onPressed: () {
                                     Navigator.pushReplacement(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const DetailPage()),
+                                    MaterialPageRoute(builder: (context) => const DetailPage(title: '',)),
                                   );
                                 },
                                   child: Text('Detail'),
@@ -319,7 +319,7 @@ class _KatalogListPageState extends State<KatalogListPage> {
                                   onPressed: () {
                                     Navigator.pushReplacement(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const DetailPage()),
+                                    MaterialPageRoute(builder: (context) => const DetailPage(title: '',)),
                                   );
                                 },
                                   child: Text('Detail'),

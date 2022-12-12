@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jajan_id/components/drawer.dart';
 
 class MyFormPage extends StatefulWidget {
-  const MyFormPage({super.key});
+  const MyFormPage({super.key, required String title});
 
   @override
   State<MyFormPage> createState() => _MyFormPageState();

@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 // https://jajan-id.up.railway.app/detail/jam_json
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  const DetailPage({Key? key, required String title}) : super(key: key);
 
   @override
   _DetailPageState createState() => _DetailPageState();
