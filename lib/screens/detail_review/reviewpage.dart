@@ -6,26 +6,6 @@ class ReviewPage extends StatelessWidget {
    String? name, comment;
    ReviewPage({Key? key,required this.comment, required this.name}) : super(key: key);
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //   body: Center(
-  //     child: Center(
-  //       child: Scaffold(
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children: [
-  //               Text('Nama: $name'),
-  //               Text('Komentar: $comment'),
-  //           ],
-  //           ),
-  //           ),
-  //       ),
-  //       );
-  //   }
-  //   }
-
-// import 'package:flutter/material.dart';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
