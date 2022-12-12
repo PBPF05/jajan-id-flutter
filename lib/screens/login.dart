@@ -24,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text("Login"),
         centerTitle: true,
       ),
@@ -147,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                                   "password": password,
                                 });
 
-                                bool status = req["status"];
+                                bool status = req.jsonData as bool;
 
                                   if (status) {
                                     ScaffoldMessenger.of(context)
